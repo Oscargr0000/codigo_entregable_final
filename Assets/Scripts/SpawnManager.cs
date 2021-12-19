@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour
     private float RandomX;
     private float RandomZ;
     private float RandomY;
+
     private float RandomNumX = 200f;
     private float RandomNumZ = 200f;
     private float RandomNumY = 100f;

@@ -9,14 +9,32 @@ public class MoveForward : MonoBehaviour
     private float yRangeup = 300; 
     private float yRangeDown = -100; 
     private float speed = 30f;
-   
+
+
+
+
+    //DESTRUCCION CAJA Y BALA
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+
+            Destroy(other.gameObject);
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
     {
+
+        //MOVIMIENTO UNIFORME
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
 
+
+        //LIMITADORES DE POSICION
         if (transform.position.x > xzRange)
         {
             Destroy(gameObject);
@@ -54,14 +72,4 @@ public class MoveForward : MonoBehaviour
 
     }
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Obstacle"))
-        {
-            Destroy(gameObject);
-
-            Destroy(other.gameObject);
-        }
-    }
 }

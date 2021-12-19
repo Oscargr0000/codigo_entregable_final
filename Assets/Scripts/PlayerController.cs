@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         //CONTROL DE MOVIMIENTO 
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
+
         transform.Rotate(Vector3.up * speed * Time.deltaTime * horizontalInput);
         transform.Rotate(Vector3.right * speed * Time.deltaTime * verticalInput);
         transform.Translate(Vector3.forward * speedMove * Time.deltaTime);
@@ -113,6 +114,7 @@ public class PlayerController : MonoBehaviour
             if (Coin == 10)
             {
                 Debug.Log($"Has ganado :)");
+                Time.timeScale = 0;
             }
         }
 
